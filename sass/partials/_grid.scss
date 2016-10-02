@@ -1,0 +1,34 @@
+// --------------------------------------------
+// grid
+
+
+@import "neat-helpers"; // or "neat-helpers" when in Rails
+
+/* grid settings */
+$column: 90px;
+$gutter: 30px;
+// $grid-columns: 12;
+$visual-grid: false;
+
+
+/* breakpoints */
+$phone: new-breakpoint(min-width 521px 4);
+$tablet: new-breakpoint(min-width 691px 8);
+$desktop: new-breakpoint(min-width 1120px 12);
+
+$height: new-breakpoint(min-height 600 4);
+
+
+/*
+
+// ---------------------- phone mediaq
+@include media($phone) {
+}
+// ---------------------- tablet mediaq
+@include media($tablet) {
+}
+// ---------------------- desktop mediaq
+@include media($desktop) {
+}
+
+*/
