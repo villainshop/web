@@ -1,13 +1,14 @@
 {
 	"title": "Villain Shop",
-	"description": "",
-	"base": "http://villain.shop",
-	"analytics": "UA-80904812-1",
+	"short": "We are a small poster shop dedicated to villainous 😈 things.",
+	"description": "We are a small poster shop dedicated to villainous 😈 things.",
+	"url": "https://villain.shop",
+	"analytics": "UA-93950816-1",
 	"social": {
-		"twitter": "",
-		"facebook": "",
-		"instagram": "",
-		"github": "",
+		"twitter": "ShopVillain",
+		"facebook": "ShopVillain",
+		"etsy": "ShopVillain",
+		"pinterest": "ShopVillain"
 	},
 	"keywords": []
 }

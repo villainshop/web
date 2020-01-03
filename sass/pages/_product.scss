@@ -1,0 +1,310 @@
+// --------------------------------------------
+// product
+section#product, section#product-modal {
+	padding: 120px 0 80px 0;
+
+	.preview {
+		float: left;
+		flex: 0 0 88px;
+		margin: 0 16px 16px 0;
+
+		ul {
+			li {
+				margin: 0 8px 8px 0;
+				float: left;
+
+				&.active a {
+					background: rgba(0, 0, 0, 0.06);
+				}
+
+				a {
+					width: 80px;
+					height: 80px;
+					padding: 8px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background: rgba(0, 0, 0, 0.04);
+					transition: background 0.2s;
+					border-radius: 3px;
+					
+
+					img {
+						max-width: 64px;
+						max-height: 64px;
+						display: block;
+						margin: auto;
+					}
+				}
+			}
+		}
+	}
+
+	.image {
+		margin: 0 0 60px 0;
+		// margin: 0 24px 24px 24px;
+		clear: both;
+
+		ul {
+			li {
+				display: none;
+
+				&.active {
+					display: block;
+				}
+
+				img {
+					display: block;
+					max-width: 100%;
+					margin: auto;
+				}
+			}
+		}
+	}
+
+	.description {
+		overflow: hidden;
+		width: 100%;
+		background: #fff;
+
+		.title {
+			max-width: 300px;
+			margin-bottom: 24px;
+
+			h1 {
+				font-size: 32px;
+				margin: 0;
+			}
+		}
+
+		p {
+			margin-bottom: 32px;
+			float: left;
+			display: block;
+			width: 100%;
+		}
+
+		.price {
+			margin-bottom: 32px;
+			float: left;
+			width: 100%;
+
+			span {
+				font-family: $secondary-font;
+				font-weight: 300;
+				font-size: 24px;
+			}
+		}
+
+		.button-group {
+			float: left;
+			width: 100%;
+			margin-top: 16px;
+
+			.button {
+				display: block;
+				float: left;
+				margin: 0 16px 0 0;
+			}
+
+			.share {
+				padding: 6px 0;
+				float: left;
+				clear: none;
+			}
+		}
+	}
+
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+		
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+		.image {
+			ul {
+				li {
+					&.active {
+						display: flex;
+					}
+
+					img {
+						max-width: 512px;
+						max-height: 512px;
+					}
+				}
+			}
+		}	
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {
+		.preview {
+			width: 88px;
+			margin: 0 16px 24px 24px;
+		}
+		.image {
+			// margin: 24px 24px 24px 0;
+			// margin: 0 24px 0 0;
+			margin: 0 24px 0 0;
+			float: left;
+			flex: 0 0 512px;
+		}
+		.description {
+			width: auto;
+			padding: 0 0 0 40px;
+		}
+		.inner-wrap {
+			display: flex;
+			flex-direction: row;
+		}		
+	} 
+}
+
+
+// --------------------------------------------
+// product-modal
+section#product-modal {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	padding: 64px 0 104px 0;
+	overflow-y: scroll;
+	background: rgba(0, 0, 0, 0);
+	z-index: 51;
+	opacity: 0;
+	visibility: hidden;
+	transform: translate3d(0, 0, 0);
+	transition: background 0.4s ease;
+	
+	.container {
+		position: relative;
+	}
+
+	.product-open & {
+		visibility: visible;
+		opacity: 1;
+		background: rgba(0, 0, 0, 0.4);
+
+		.product-close {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.wrap {
+			transform: translate3d(0, 0, 0);
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+
+	.wrap {
+		transform: translate3d(0, 40px, 0);
+		transition: transform 0.4s ease;
+		background: #efefef;
+		float: left;
+		width: 100%;
+		padding: 0;
+		border-radius: 8px;
+		overflow: hidden;
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	.close-fade {
+		display: block;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+	}
+
+	.close-button {
+		display: block;
+		position: absolute;
+		top: -48px;
+		right: 10px;
+		width: 48px;
+		height: 48px;
+
+		&:before, &:after {	
+			display: block;
+			content: " ";
+			width: 24px;
+			height: 2px;
+			background: #ddd;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+
+		&:before {
+			transform: translate3d(12px, 23px, 0) rotate(-45deg);
+		}
+
+		&:after {
+			transform: translate3d(12px, 23px, 0) rotate(45deg);
+		}
+	}
+
+	.preview {
+		margin: 24px 16px 16px 24px;
+	}
+
+	.image {
+		margin: 0 24px 24px 24px;
+	}
+
+	.description {
+		padding: 60px 40px;
+	}
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {
+		.inner-wrap {
+			align-items: center;
+		}
+
+		.image {
+			margin: 60px 24px 60px 0;
+		}
+
+		.description {
+			min-height: 632px;
+		}
+
+		.close-button {
+			top: 0px;
+			right: -50px;
+		}
+	} 
+}
+
+// --------------------------------------------
+// product-details
+section#product-details {
+	padding: 0 0 120px 0;
+
+	.container {
+		max-width: 512px;
+	}
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {		
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {
+	} 
+}

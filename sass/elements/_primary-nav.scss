@@ -1,0 +1,39 @@
+/* --------------------------------------------
+//	primary-nav element
+*/
+.primary-nav {
+	clear: both;
+	
+	li {
+		margin: 0 8px 0 0;
+	}
+
+	a {
+		padding: 6px;
+		display: block;
+		text-align: center;
+		text-align: center;
+		line-height: 1;
+		font-size: 24px;
+	}
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+		a {
+			font-size: 32px;
+		}
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {
+		li {
+			a {
+				&:hover i {
+					color: rgba(0, 0, 0, 0.9);
+				}
+			}
+		}
+	}
+}

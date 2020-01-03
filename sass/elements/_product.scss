@@ -1,0 +1,148 @@
+/* --------------------------------------------
+//	product element
+*/
+.product {
+	width: 100%;
+	float: left;
+	padding: 80px 40px;
+	margin: 0 0 20px 0;
+	background: #efefef;
+
+	&:hover .meta .price {
+		span {
+			display: none;
+		}
+
+		.button {
+			display: block;
+		}
+	}
+
+	.image {
+		max-width: 280px;
+		width: 100%;
+		margin: 0 auto 40px auto;
+		background: #fff;
+		border: 8px solid #000;
+		position: relative;
+		transform: translate3d(0, 0, 0);
+		transform-style: preserve-3d;
+		transition: transform 0.4s;
+
+		&:after {
+			padding-bottom: calc(133.333333% - 8px);
+			display: block;
+			content: "";
+		}
+
+		&:before {
+			position: absolute;
+			left: 10px;
+			top: 0px;
+			right: 10px;
+			bottom: 0px;
+			z-index: -10;
+			box-shadow: rgba(0, 0, 0, 0.20) 0 18px 32px;
+			transform: translate3d(0, 0, -10px);
+			content: " ";
+			transition: box-shadow 0.4s;
+		}
+
+		img {
+			display: block;
+			width: auto;
+			max-width: calc(100% - 20px);
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			right: 10px;
+			bottom: 10px;
+		}
+	}
+
+	.meta {		
+		.title {
+			color: $base-header;
+			font-size: 18px;
+			width: 100%;
+
+			h3 {
+				text-align: center;
+				font-size: 18px;
+				margin-bottom: 16px;
+			}
+		}
+
+		.price {
+			display: flex;
+			justify-content: center;
+			flex-direction: row;
+
+			span {
+				border: 1px solid #c7c7c7;
+				padding: 5px 12px;
+				height: 36px;
+				display: block;
+				border-radius: 4px;
+				font-size: 16px;
+				text-transform: uppercase;
+				width: auto;
+				color: #727272;
+				text-align: center;
+				display: block;
+			}
+
+			.add-to-cart {
+				background: #fff;
+				padding: 0 18px;
+				height: 36px;
+				width: 100%;
+				max-width: 120px;
+				line-height: 36px;
+				display: block;
+				font-size: 12px;
+				text-transform: uppercase;
+				border-radius: 4px;
+				color: $base-header;
+				font-family: $secondary-font;
+				font-weight: 700;
+				text-align: center;
+				letter-spacing: 1px;
+				display: none;
+
+				&:after {
+					border-color: $primary;
+					border-bottom-color: transparent;
+					width: 18px;
+					height: 18px;
+					margin: -9px 0 0 -9px;
+				}
+			}
+		}
+	}
+
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+		width: calc(50% - 12px);
+		margin: 0 5px 12px 5px;
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {
+		width: calc(50% - 60px);
+		margin: 0 30px 60px 30px;
+
+		&:hover {
+			.image {
+				transform: translate3d(0, -8px, 0);
+
+				&:before {
+					box-shadow: rgba(0, 0, 0, 0.24) 0 26px 48px;
+				}
+			}
+		}
+	}
+}

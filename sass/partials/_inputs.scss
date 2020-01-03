@@ -1,0 +1,321 @@
+// --------------------------------------------
+// inputs
+
+.input-group, .select-group {
+	width: 100%;
+	margin: 0 0 24px 0;
+	float: left;
+	position: relative;
+
+	&.no-float {
+		float: none;
+	}
+
+	input, textarea, select {
+		width: 100%;
+		border: 1px solid #ddd;
+		border-radius: 3px;
+		padding: 12px;
+		background: transparent;
+		display: block;
+		font-size: 16px;
+		font-family: $primary-font;
+		font-weight: 300;
+		transition: border-color 0.2s, max-width 0.2s;
+		-webkit-appearance: none;
+
+		&[disabled] {
+			background: #f6f6f6;
+			border-color: #f6f6f6;
+		}
+
+		&:focus {
+			border-color: #929292;
+			box-shadow: 0px 1px 5px 0px rgba(171, 206, 239, 0.1) inset; 
+
+			& + .dropdown, & + label + .dropdown {
+				display: block;
+			}
+		}
+
+		&.no-border {
+			border: 0;
+		}
+
+		&.extra-margin {
+			margin-bottom: 20px;
+		}
+
+		&.small {
+			padding: 0px 30px;
+		}
+
+		&.error {
+			border: 3px solid #f83434;
+			padding: 16px 32px;
+		}
+	}
+
+	select {
+		width: 100%;	
+		display: block;
+		float: left;
+		cursor: pointer;
+		background-size: 10px 7px;
+	}
+
+	label, .label {
+		margin: 0 0 6px 0;
+		color: $secondary;
+		float: left;
+		font-size: 11px;
+		line-height: 1.4;
+		width: 100%;
+		font-weight: 700;
+		text-transform: uppercase;
+
+		&.icon {
+			width: 24px;
+			height: 24px;
+			position: absolute;
+			top: 19px;
+			left: 16px;
+			z-index: 100;
+			cursor: pointer;
+
+			svg {
+				fill: #434343;
+			}
+		}
+
+		&.invalid {
+			font-size: 12px;
+	        color: $error;
+	        margin: 6px 0 0 0;
+	        font-weight: 400;
+	        text-transform: none;
+	    }
+
+	    .help {
+	    	border: 1px solid #eee;
+	    	color: $primary;
+	    	width: 16px;
+	    	height: 16px;
+	    	border-radius: 8px;
+	    	text-align: center;
+	    	display: inline-block;
+	    	margin-left: 2px;
+	    	position: relative;
+	    	font-weight: 300;
+	    	cursor: pointer;
+	    	text-transform: none;
+
+	    	&.active .tooltip {
+	    		opacity: 1;
+	    		visibility: visible;
+	    	}
+	    }
+
+		&.auto {
+			width: auto;
+		}
+
+		&[class^="icon-"] {
+			position: absolute;
+			top: 6px;
+			left: 8px;
+			font-size: 24px;
+			width: 32px;
+			height: 32px;
+			text-align: center;
+			line-height: 32px;
+			margin: 0;
+			cursor: pointer;
+			color: #bbb;
+			font-weight: 400;
+		}
+	}
+
+	textarea {
+		height: 120px;
+		resize: vertical;
+	}
+
+	p {
+		margin-bottom: 12px;
+		float: left;
+		width: 100%;
+	}
+
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {
+		label, .label {
+			.help {
+		    	&:hover .tooltip {
+		    		opacity: 1;
+		    		visibility: visible;
+		    	}
+		    }
+		}
+	}
+}
+
+
+.success-group {
+	margin-bottom: 24px;
+	font-size: 14px;
+	width: 100%;
+	float: left;
+	padding: 16px;
+	border-radius: 3px;
+	background: #e7f7e5;
+	color: #54a04b;
+}
+
+
+.error-group {
+	margin-bottom: 24px;
+	font-size: 14px;
+	width: 100%;
+	float: left;
+	padding: 16px;
+	border-radius: 3px;
+	background: lighten($error, 26);
+	color: $error;
+}
+
+
+.check-group {
+	float: left;
+	width: 100%;
+	margin: 0 0 24px 0;
+
+	.label {
+		margin: 0 0 8px 0;
+		color: $primary;
+		float: left;
+		font-size: 12px;
+		line-height: 1.4;
+		width: 100%;
+		font-weight: 400;
+		text-transform: uppercase;
+	}
+
+	label {
+		font-size: 16px;
+		line-height: 20px;
+		height: 20px;
+		display: block;
+		font-weight: 400;
+		float: left;
+		position: relative;
+	}
+	/* Base for label styling */
+	[type="checkbox"]:not(:checked),
+	[type="checkbox"]:checked {
+		display: none;
+	}
+	[type="checkbox"]:not(:checked) + label,
+	[type="checkbox"]:checked + label {
+		position: relative;
+		padding-left: 28px;
+		cursor: pointer;
+	}
+
+	/* checkbox aspect */
+	[type="checkbox"]:not(:checked) + label:before,
+	[type="checkbox"]:checked + label:before {
+		content: '';
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 20px; 
+		height: 20px;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		color: #fff;
+		font-size: 10px;
+		text-align: center;
+		line-height: 18px;
+	}
+
+	/* checked mark aspect changes */
+	[type="checkbox"]:checked + label:after {
+		content: "";
+		position: absolute;
+		left: 4px;
+		top: 4px;
+		width: 12px;
+		height: 12px;
+		border-radius: 2px;
+		background: rgb(33, 33, 33);
+	}
+}
+
+
+.radio-group {
+	width: 100%;
+	float: left;
+	margin: 0 20px 20px 0;
+
+	.label {
+		margin: 0 0 8px 0;
+		color: $primary;
+		float: left;
+		font-size: 12px;
+		line-height: 1.4;
+		width: 100%;
+		font-weight: 400;
+		text-transform: uppercase;
+	}
+
+	label {
+		color: #0e0e0e;
+		font-size: 18px;
+	}
+
+	/* Base for label styling */
+	[type="radio"]:not(:checked),
+	[type="radio"]:checked {
+		position: absolute;
+		left: -9999px;
+	}
+	[type="radio"]:not(:checked) + label,
+	[type="radio"]:checked + label {
+		position: relative;
+		padding-left: 38px;
+		cursor: pointer;
+	}
+
+	/* radio aspect */
+	[type="radio"]:not(:checked) + label:before,
+	[type="radio"]:checked + label:before {
+		content: '';
+		position: absolute;
+		left:0px;
+		top: -4px;
+		width: 26px;
+		height: 26px;
+		border-radius: 13px;
+		border: 1px solid #cccccc;
+	}
+
+	/* checked mark aspect changes */
+	[type="radio"]:checked + label:after {
+		content: '';
+		position: absolute;
+		left: 6px;
+		top: 2px;
+		width: 14px;
+		height: 14px;
+		border-radius: 7px;
+		background: $primary;
+	}
+}

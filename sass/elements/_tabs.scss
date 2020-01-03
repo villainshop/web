@@ -1,0 +1,86 @@
+/* --------------------------------------------
+//	tabs element
+*/
+.tabs {
+	.tab-nav {
+		overflow: hidden;
+		margin: 0 auto 24px auto;
+		display: flex;
+		justify-content: center;
+
+		ul {
+			li {
+				float: left;
+				// clear: left;
+
+				a {
+					padding: 4px 12px; 
+					font-size: 22px;
+					font-weight: 700;
+					color: $primary;
+					font-family: $secondary-font;
+					float: left;
+					opacity: 0.4;
+					transition: 
+						opacity 0.4s;
+				}
+
+				&.active a {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.tab-content {
+		position: relative;
+
+		.tab {
+			transform: translate3d(0, 16px, 0);
+			opacity: 0;
+			visibility: hidden;
+			max-height: 0px;
+			overflow: hidden;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			transition: 
+				opacity 0.4s,
+				transform 0.4s,
+				max-height 0s 0.4s,
+				visibility 0.4s;
+
+			&.active {
+				max-height: 600px;
+				display: block;
+				transform: translate3d(0, 0px, 0);
+				opacity: 1;
+				visibility: visible;
+				position: relative;
+				transition: 
+					opacity 0.4s,
+					transform 0.4s,
+					max-height 0s 0s,
+					visibility 0.4s;
+			}
+		}
+	}
+
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+		.tab-nav {
+			ul {
+				li {
+				}
+			}
+		}
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {		
+	}
+}

@@ -1,0 +1,197 @@
+/* --------------------------------------------
+//	cart element
+*/
+.cart {
+	overflow: hidden;
+
+	form.loading .count {
+		opacity: 0.4;
+
+		a {
+			cursor: default;
+		}
+	}
+
+	.empty {
+		width: 100%;
+
+		.icon {
+			width: 160px;
+			height: 160px;
+			display: block;
+			background: #f3f3f3;
+			border-radius: 80px;
+			margin: 0 auto 24px auto;
+			padding: 24px;
+
+			svg {
+				path {
+					fill: #bbb;
+				}
+			}
+		}
+
+		p {
+			text-align: center;
+			margin-bottom: 40px;
+		}
+	}
+
+	.cart-items {
+		float: left;
+		width: 100%;
+		margin-bottom: 24px;
+		border-top: 1px solid #eee;
+	}
+
+	.total {
+		width: 100%;
+		float: left;
+		margin-bottom: 40px;
+
+		span {
+			font-weight: 700;
+			float: right;
+			width: 80px;
+			margin-left: 16px;
+			color: $base-header;
+			text-align: center;
+
+			&:nth-child(2) {
+				font-weight: 300;
+				text-align: right;
+			}
+		}
+	}
+
+	.note {
+		font-size: 14px;
+		text-align: center;
+		max-width: 260px;
+		margin: 0 auto;
+		line-height: 1.6;
+		color: #b9b9b9;
+	}
+
+	.item {
+		padding: 16px 0;
+		border-bottom: 1px solid #eee;
+		float: left;
+		width: 100%;
+
+		.image {
+			width: 96px;
+			height: 96px;
+			padding: 8px;
+			background: #efefef;
+			float: left;
+			margin-right: 16px;
+
+			img {
+				display: block;
+				// width: 100%;
+				// height: auto;
+				max-width: 80px;
+				margin: 0 auto;
+ 				max-height: 80px;
+				background: #fff;
+				padding: 4px;
+				// border: 4px solid #fff;
+				border: 2px solid #000;
+			}
+		}
+
+		.title {
+			height: 100%;
+			display: flex;
+			flex-grow: 1;
+			padding-right: 16px;
+			margin-bottom: 16px;
+			flex-direction: column;
+			justify-content: center;
+
+			h4 {
+				margin-bottom: 0px;
+				font-size: 18px;
+			}
+
+			span {
+				font-size: 16px;
+			}
+		}
+
+		.count {
+			height: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			float: left;
+			transition: 
+				opacity 0.2s;
+
+			a {
+				float: left;
+				text-align: center;
+				font-weight: 700;
+				width: 28px;
+				height: 28px;
+				display: block;
+				border-radius: 14px;
+				background: #f3f3f3;
+				transition: 
+					background 0.2s;
+			}
+
+			span {
+				float: left;
+				display: block;
+				margin: 0 12px;
+			}
+		}
+
+		.price {
+			height: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			float: right;
+			align-items: center;
+			margin-left: 16px;
+			width: 80px;
+
+			span {
+				font-size: 18px;
+				font-weight: 700;
+				color: #727272;
+			}
+		}
+	}
+
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+		.title {
+			margin-bottom: 0px;
+		}
+
+		.item {
+			height: 128px;
+			display: flex;
+		}
+
+		.tab-nav {
+			ul {
+				li {
+					clear: none;
+				}
+			}
+		}
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {		
+	}
+}

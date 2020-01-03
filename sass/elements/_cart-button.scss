@@ -1,0 +1,94 @@
+/* --------------------------------------------
+//	cart-button element
+*/
+#cart-button {
+	position: fixed;
+	bottom: 24px;
+	left: 50%;
+	transform: translate3d(-50%, 0, 0);
+	z-index: 151;
+	max-width: 180px;
+	width: 100%;
+	transition:		
+		max-width 0.4s ease;
+
+	.button {
+		font-size: 14px;
+		box-shadow: rgba(0, 0, 0, 0.08) 0 12px 24px;
+
+		&:before, &:after {	
+			opacity: 0;
+			visibility: hidden;	
+			display: block;
+			content: "";
+			width: 24px;
+			z-index: 10;
+			height: 2px;
+			background: #727272;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			transition: 
+				transform 0.4s ease,
+				opacity 0.4s ease,
+				visibility 0.4s ease;
+		}
+
+		&:before {
+			transform: translate3d(16px, 26px, 0) rotate(-45deg);
+		}
+
+		&:after {
+			transform: translate3d(16px, 26px, 0) rotate(-135deg);
+		}
+	}
+
+	.title {
+		opacity: 1;
+		visibility: visible;
+		transform: translate3d(0, 0, 0);
+		z-index: 10;
+		letter-spacing: 2px;
+		transition: 
+			transform 0.4s ease,
+			opacity 0.4s ease,
+			visibility 0.4s ease;
+	}
+
+	.cart-open & {
+		max-width: 56px;
+
+		.title {
+			opacity: 0;
+			visibility: hidden;
+			// transform: translate3d(16px, 0, 0);
+		}
+
+		.button {
+			&:before, &:after {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			&:before {
+				transform: translate3d(16px, 27px, 0) rotate(45deg);
+			}
+
+			&:after {
+				transform: translate3d(16px, 27px, 0) rotate(-45deg);
+			}
+		}
+	}
+	 
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+		bottom: 60px;
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {
+	}
+}

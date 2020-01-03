@@ -1,0 +1,32 @@
+/* --------------------------------------------
+//	missing
+*/
+section#missing {
+	padding: 120px 0;
+
+	.button {
+		clear: both;
+		margin: 0 auto;
+		float: none;
+	}
+
+	.title-group {
+		text-align: center;
+
+		h1 {
+			font-size: 104px;
+			margin-bottom: 8px;
+		}
+	}
+
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {
+	} 
+}

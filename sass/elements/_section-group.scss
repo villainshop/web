@@ -1,0 +1,47 @@
+/* --------------------------------------------
+//	section-group element
+*/
+.section-group {
+	width: 100%;
+	float: left;
+	margin: 0 0 80px 0;
+
+	h1, h2 {
+		font-size: 24px;
+		line-height: 1.7;
+		max-width: 380px;
+		font-weight: 300;
+		margin-bottom: 16px;
+		color: #9b9b9b;
+		font-family: $primary-font;
+	}
+
+	p {
+		color: $base-header;
+	}
+
+	.button-underline {
+		margin-top: 8px;
+		font-size: 18px;
+		float: left;
+	}
+
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+		width: calc(50% - 60px);
+		margin: 0 30px 40px 30px;
+
+		.button-underline {
+			margin-top: 40px;
+			font-size: 18px;
+			float: left;
+		}
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {
+	} 
+}

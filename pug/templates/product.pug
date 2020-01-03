@@ -1,0 +1,70 @@
+.inner-wrap
+	#product-preview.preview
+		if images.length > 0
+			ul
+				for image, key in images
+					if key === 0
+						li.active
+							a(href="#preview"): img(src=image.src alt=title)
+					else
+						li
+							a(href="#preview"): img(src=image.src alt=title)
+
+	#product-image.image
+		if images.length > 0
+			ul
+				for image, key in images
+					if key === 0
+						li.active
+							img(src=image.src alt=title)
+					else
+						li
+							img(src=image.src alt=title)
+
+	.description
+		.title
+			h1 #{title}
+
+		.price
+			span #{variants[0].formattedPrice.split(".")[0]}
+
+		p #{description}		
+
+		form#product-form.form(action="/cart/")
+			.hidden-group
+				input(type="hidden" name="id" value=id)
+
+			for option in options				
+				if option.name === "frame"
+					.frame-group
+						.label frame
+						input(name="frame" id="product-frame-0" type="radio" value="unframed" checked="checked")
+						label(for="product-frame-0") Should poster be framed?
+							
+						input(name="frame" id="product-frame-1" type="radio" value="framed")
+						label(for="product-frame-1") Should poster be framed?
+
+				else
+					.size-group
+						.label #{option.name}
+						for value, key in option.values
+							if key == 0 
+								input(name=option.name id="product-" + option.name + "-" + key type="radio" value=value checked="checked")
+							else
+								input(name=option.name id="product-" + option.name + "-" + key type="radio" value=value)
+
+							label(for="product-" + option.name + "-" + key) #{value}
+
+			.button-group
+				button.button.add-to-cart Add to bag
+
+				.share.color
+					- var link = encodeURIComponent(CONFIG.base + "/products/" + attrs.handle + "/");
+
+					ul
+						li: a(href="https://twitter.com/intent/tweet?text=" + title + "&url=" + link, target="_blank").twitter
+							i.fa.fa-twitter
+						li: a(href="https://facebook.com/dialog/share?app_id=1695100660759600&href=" + link + "&picture=" + images[0].src, target="_blank").facebook
+							i.fa.fa-facebook
+						li: a(href="https://pinterest.com/pin/create/button/?url=" + link + "&media=" + images[0].src + "&description=" + title, target="_blank").pinterest
+							i.fa.fa-pinterest

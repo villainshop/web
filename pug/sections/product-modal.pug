@@ -1,0 +1,41 @@
+section#product-modal
+	a(href="#close").close-product.close-fade
+
+	.container
+		a(href="#close").close-product.close-button
+
+		.wrap
+			#product-preview.preview
+				ul
+					li: a(href="#preview"): img(src="/img/products/1.png" alt="")
+					li: a(href="#preview"): img(src="/img/products/2.png" alt="")
+					li: a(href="#preview"): img(src="/img/products/4.png" alt="")
+
+			#product-image.image
+				ul
+					li: img(src="/img/products/1.png" alt="")
+					li: img(src="/img/products/2.png" alt="")
+					li: img(src="/img/products/4.png" alt="")
+
+			.description
+				.title
+					h1 Heaven Isn't My Kind of Place Anyway
+
+				p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utore et dolore magna aliqua.
+
+				form#product-form.form(action="/cart/")
+					.size-group
+						.label Size
+						input(name="size" id="product-size-large" type="radio" value="18x24\"" checked="checked")
+						label(for="product-size-large") 18x24"
+						input(name="size" id="product-size-medium" type="radio" value="12x16\"")
+						label(for="product-size-medium") 12x16"
+
+					.check-group
+						.label Frame
+						input(name="frame" id="product-frame" type="checkbox" value="framed")
+						label(for="product-frame") Should poster be framed?
+
+					.price
+						button.button.add-to-cart Add to bag
+						span $32

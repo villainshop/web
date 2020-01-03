@@ -1,0 +1,19 @@
+extends ../layouts/base
+
+
+block head
+	- var CURRENT = "Cart";
+	- var WRAPPER_CLASS = "";
+
+
+block modal
+	include ../sections/rule-modal
+	include ../sections/product-modal
+
+block content
+	section#cart
+		.container
+			.wrap
+				include ../elements/cart
+
+	include ../sections/footer

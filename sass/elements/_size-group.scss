@@ -1,0 +1,46 @@
+/* --------------------------------------------
+//	size-group element
+*/
+
+.size-group {
+	width: 100%;
+	float: left;
+	margin: 0 0 16px 0;
+
+	.label {
+		margin: 0 0 8px 0;
+		color: $primary;
+		float: left;
+		font-size: 12px;
+		line-height: 1.4;
+		width: 100%;
+		font-weight: 400;
+		text-transform: uppercase;
+	}
+
+	label {
+		color: #0e0e0e;
+		font-size: 16px;
+		border: 1px solid #ddd;
+		cursor: pointer;
+		height: 34px;
+		line-height: 32px;
+		border-radius: 17px;
+		padding: 0 16px 0 19px;
+		display: block;
+		float: left;
+		margin: 0 8px 8px 0;
+	}
+
+	/* Base for label styling */
+	[type="radio"]:not(:checked),
+	[type="radio"]:checked {
+		position: absolute;
+		left: -9999px;
+	}
+
+	/* checked mark aspect changes */
+	[type="radio"]:checked + label {
+		border-color: #929292;
+	}
+}

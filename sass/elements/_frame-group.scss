@@ -1,0 +1,82 @@
+/* --------------------------------------------
+//	frame-group element
+*/
+
+.frame-group {
+	float: left;
+	width: 100%;
+	margin: 0 0 24px 0;
+
+	.label {
+		margin: 0 0 8px 0;
+		color: $primary;
+		float: left;
+		font-size: 12px;
+		line-height: 1.4;
+		width: 100%;
+		font-weight: 400;
+		text-transform: uppercase;
+	}
+
+	label {
+		font-size: 16px;
+		line-height: 20px;
+		height: 20px;
+		display: block;
+		font-weight: 400;
+		float: left;
+		position: relative;
+
+		&:nth-child(3):after {
+			content: "";
+			position: absolute;
+			left: 4px;
+			top: 4px;
+			width: 12px;
+			height: 12px;
+			border-radius: 2px;
+			background: rgb(33, 33, 33);
+		}
+	}
+
+	/* Base for label styling */
+	[type="radio"]:not(:checked),
+	[type="radio"]:checked {
+		display: none;
+	}
+	[type="radio"]:not(:checked) + label,
+	[type="radio"]:checked + label {
+		position: relative;
+		padding-left: 28px;
+		cursor: pointer;
+	}
+
+	/* radio aspect */
+	[type="radio"]:not(:checked) + label:before,
+	[type="radio"]:checked + label:before {
+		content: '';
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 20px; 
+		height: 20px;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		color: #fff;
+		font-size: 10px;
+		text-align: center;
+		line-height: 18px;
+	}
+
+	/* checked mark aspect changes */
+	[type="radio"]:checked + label {
+		display: none;
+	}
+
+	.note {
+		line-height: 20px;
+		font-size: 16px;
+		float: left;
+		display: inline-block;
+	}
+}

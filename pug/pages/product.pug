@@ -1,0 +1,83 @@
+extends ../layouts/base
+
+
+block head
+	- var CURRENT = "Product";
+	- var WRAPPER_CLASS = "";
+
+
+block modal
+	include ../sections/cart-modal
+	include ../sections/rule-modal
+
+block content
+	section#product
+		.container
+			.wrap
+				.inner-wrap
+					#product-preview.preview
+						ul
+							li.active: a(href="#preview"): img(src="/img/products/1.png" alt="")
+							li: a(href="#preview"): img(src="/img/products/2.png" alt="")
+							li: a(href="#preview"): img(src="/img/products/4.png" alt="")
+
+					#product-image.image
+						ul
+							li.active: img(src="/img/products/1.png" alt="")
+							li: img(src="/img/products/2.png" alt="")
+							li: img(src="/img/products/4.png" alt="")
+
+					.description
+						.title
+							h1 Poster Title
+
+						.price
+							span $32
+
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. 		
+
+						form#product-form.form(action="/cart/")
+							.hidden-group
+								input(type="hidden" name="id" value=id)
+
+							.frame-group
+								.label frame
+								input(name="frame" id="product-frame-0" type="radio" value="unframed" checked="checked")
+								label(for="product-frame-0") Should poster be framed?
+									
+								input(name="frame" id="product-frame-1" type="radio" value="framed")
+								label(for="product-frame-1") Should poster be framed?
+
+							.size-group
+								.label Size
+								input(name="size" id="product-size-large" type="radio" value="18x24\"" checked="checked")
+								label(for="product-size-large") 18x24"
+								input(name="size" id="product-size-medium" type="radio" value="12x16\"")
+								label(for="product-size-medium") 12x16"
+
+							.button-group
+								button.button.add-to-cart Add to bag
+
+								.share.color
+									ul
+										li: a(href="http://facebook.com/" target="_blank").facebook: i.fa.fa-facebook
+										li: a(href="http://twitter.com/" target="_blank").twitter: i.fa.fa-twitter
+										li: a(href="http://pinterest.com/" target="_blank").pinterest: i.fa.fa-pinterest
+
+
+
+	section#product-details
+		.container
+			.tabs
+				.tab-nav
+					ul
+						li.active: a(href="#shipping") Shipping
+						li: a(href="#quality") Quality
+				.tab-content
+					.tab.active
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utore et dolore magna aliqua.
+					.tab
+						p Sed do eiusmod tempor incididunt utore et dolore magna aliqua.
+
+
+	include ../sections/footer

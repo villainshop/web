@@ -23,7 +23,6 @@ index.php
 .cache
 .project
 .settings
-.publish
 .tmproj
 *.esproj
 *.sublime-project
@@ -40,9 +39,9 @@ old/
 *-old/
 *-notrack/
 build/
+js/templates
 combo/
 reference/
 jscoverage_lib/
 temp/
 www
-*.iml

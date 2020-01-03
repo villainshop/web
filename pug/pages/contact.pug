@@ -1,0 +1,79 @@
+extends ../layouts/base
+
+
+block head
+	- var CURRENT = "Contact";
+	- var WRAPPER_CLASS = "";
+
+
+block modal
+	include ../sections/nav
+	include ../sections/rule-modal
+
+block content
+	section#contact
+		.container
+			.wrap
+				.section-group
+					h1 Need to get in touch?
+						br
+						| We are here to help.
+					p We'll get back to you withing 24 hours.
+
+					a(href="mail-to:help@villain.shop").button-underline help@villain.shop
+
+					include ../elements/social
+
+				.content
+					.faq
+						.accordion-group(data-accordion-group)
+							.accordion(data-accordion)
+								.accordion-nav(data-control)
+									.accordion-open
+									.accordion-title
+										h4 Something something? Blag?
+								.accordion-content(data-content)
+									.accordion-wrap
+										p Something something.
+							.accordion(data-accordion)
+								.accordion-nav(data-control)
+									.accordion-open
+									.accordion-title
+										h4 Something something? Blag?
+								.accordion-content(data-content)
+									.accordion-wrap
+										p Something something.
+							.accordion(data-accordion)
+								.accordion-nav(data-control)
+									.accordion-open
+									.accordion-title
+										h4 Something something? Blag?
+								.accordion-content(data-content)
+									.accordion-wrap
+										p Something something.
+							.accordion(data-accordion)
+								.accordion-nav(data-control)
+									.accordion-open
+									.accordion-title
+										h4 Something something? Blag?
+								.accordion-content(data-content)
+									.accordion-wrap
+										p Something something.
+							.accordion(data-accordion)
+								.accordion-nav(data-control)
+									.accordion-open
+									.accordion-title
+										h4 Something something? Blag?
+								.accordion-content(data-content)
+									.accordion-wrap
+										p Something something.
+							.accordion(data-accordion)
+								.accordion-nav(data-control)
+									.accordion-open
+									.accordion-title
+										h4 Something something? Blag?
+								.accordion-content(data-content)
+									.accordion-wrap
+										p Something something.
+
+	include ../sections/footer

@@ -1,0 +1,19 @@
+footer#footer
+	.container
+		.about
+			p 
+				| We love to hang out in social networks.
+				br
+				| Come and say hello!
+			
+			include ../elements/social
+
+		.links
+			p #{page.short}
+			ul
+				li: a(href="/contact/") Contact
+				li: a(href="/terms/") Terms & services
+				li: a(href="/privacy/") Privacy policy
+
+			.copy
+				p &copy; #{page.title} #{new Date().getFullYear()}

@@ -1,0 +1,28 @@
+extends ../layouts/base
+
+
+block head
+	- var CURRENT = "About";
+	- var WRAPPER_CLASS = "";
+
+
+block modal
+	include ../sections/rule-modal
+
+block content
+	section#about
+		.container
+			.wrap
+				.section-group
+					h1 We stand for the villains.
+					a(href="/contact").button-underline Contact
+
+				.content
+					.about
+						p.animate Pour-over sustainable microdosing raclette post-ironic, pabst bespoke leggings shoreditch YOLO. Organic lo-fi cardigan ennui, wayfarers taxidermy vice art party bespoke tbh biodiesel keffiyeh celiac aesthetic.
+
+						p.animate Disrupt 90's direct trade, hell of banjo chartreuse art party selfies kinfolk tote bag bushwick actually vape. Pork belly brunch four dollar toast bushwick cred, dreamcatcher distillery drinking vinegar salvia bespoke.
+
+						p.animate Irony XOXO mixtape kogi, banh mi hell of occupy echo park etsy 8-bit. Butcher sriracha cold-pressed, roof party trust fund freegan farm-to-table. XOXO waistcoat kale chips drinking vinegar selfies vape.
+
+	include ../sections/footer

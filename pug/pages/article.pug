@@ -1,0 +1,46 @@
+extends ../layouts/base
+
+
+block head
+	- var CURRENT = "Article";
+	- var WRAPPER_CLASS = "";
+
+
+block modal
+	include ../sections/rule-modal
+
+block content
+	section#article
+		.container
+			article
+				h1.title Some title
+				.meta
+					time(datetime="").date 24 days ago
+				
+				.content
+					p Air plant fixie craft beer mixtape farm-to-table celiac authentic succulents, deep v hammock wayfarers direct trade. Tacos slow-carb mlkshk, pitchfork fam dreamcatcher truffaut affogato intelligentsia four loko brooklyn artisan 8-bit single-origin coffee pok pok. Plaid salvia selfies before they sold out, keffiyeh godard locavore. Selfies fam polaroid master cleanse, schlitz gastropub taxidermy before they sold out everyday carry poutine meh street art meditation. Hoodie subway tile forage, artisan mumblecore fap readymade. Gentrify health goth vexillologist celiac, fingerstache authentic williamsburg offal four dollar toast locavore mixtape salvia. Post-ironic DIY tousled, single-origin coffee lo-fi everyday carry kale chips prism bespoke selfies.
+
+					p Photo booth mixtape ennui fam tousled. Wayfarers chambray unicorn, tacos celiac mustache swag. Gochujang kickstarter everyday carry chia, 3 wolf moon taxidermy keffiyeh kogi drinking vinegar. Synth banjo chambray umami kinfolk fam. Actually blue bottle raclette paleo, kale chips semiotics fap letterpress meditation PBR&B. Tattooed direct trade wayfarers bicycle rights photo booth asymmetrical. Irony leggings hammock austin PBR&B occupy.
+
+					p Everyday carry enamel pin tumeric, pitchfork trust fund sriracha kitsch etsy gluten-free thundercats vinyl fixie leggings. Poutine ugh try-hard helvetica. Seitan tattooed single-origin coffee, neutra paleo live-edge banh mi narwhal plaid cred chillwave hot chicken DIY stumptown freegan. Gentrify hot chicken letterpress migas readymade, photo booth hashtag jean shorts af ugh flannel PBR&B franzen fanny pack. Paleo wolf scenester kinfolk, semiotics echo park 8-bit activated charcoal messenger bag fixie fashion axe. Retro shabby chic four loko, ugh tofu chia farm-to-table. Meggings hammock hexagon ennui actually, gluten-free slow-carb narwhal fam blog.
+
+					p Tattooed prism raclette, butcher small batch freegan vice. DIY brooklyn messenger bag, mixtape blue bottle pinterest skateboard slow-carb celiac glossier enamel pin wayfarers cronut hot chicken echo park. Mustache taxidermy readymade man bun. Venmo fingerstache typewriter authentic leggings, tumeric mixtape distillery banjo bushwick 90's. Irony man bun mustache, chartreuse roof party gluten-free raw denim la croix synth. Af 90's sustainable occupy you probably haven't heard of them. Activated charcoal microdosing thundercats hot chicken prism truffaut, everyday carry authentic.
+
+			.footer
+				.links
+					h4 Share
+					.share
+						ul
+							li: a(href="" target="_blank").twitter: i.fa.fa-twitter
+							li: a(href="" target="_blank").facebook: i.fa.fa-facebook
+							li: a(href="" target="_blank").linkedin: i.fa.fa-linkedin
+
+				.author
+					.image
+						a(href="/about/" target="_self"): img(src="", alt="")
+
+					.description
+						a(href="/about/" target="_self"): h4.name Villain Shop
+						p Some description
+
+	include ../sections/footer

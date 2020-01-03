@@ -1,0 +1,46 @@
+.cart
+	.title-group
+		h2 Bag
+			span (2)
+
+	.cart-wrap
+		form(action="/cart/" method="POST").form
+			.cart-items
+				.item
+					.image
+						img(src="/img/products/2.png" alt="")
+					.title
+						h4 Your Item Name
+						span 18x24" / Unframed
+					.count
+						a(href="#decrease").decrease -
+						span 1
+						a(href="#increase").increase +
+					.price
+						span $32
+				.item
+					.image
+						img(src="/img/products/4.png" alt="")
+					.title
+						h4 Your Item Name
+						span 18x24" / Framed
+					.count
+						a(href="#decrease").decrease -
+						span 1
+						a(href="#increase").increase +
+					.price
+						span $32
+
+			.total
+				span $64
+				span total
+
+			button.button Checkout
+			p.note Shipping, taxes, and discounts will be calculated at checkout.
+
+	.empty
+		.icon
+			include ../../svg/bag.svg
+
+		p Oh 🦌! Your bag is empty.
+		a(href="/").button.back-to-shop back to shop

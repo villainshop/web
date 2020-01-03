@@ -1,23 +1,61 @@
 // reset
 @import "partials/reset";
 
+
 // external
 @import "bourbon";
 @import "neat";
 
+
 // modules
 @import "modules/mixins";
 
+
+// vendor
+@import "vendor/slider";
+
+
 // partials
-@import "partials/grid";
 @import "partials/colors";
-@import "partials/animations";
 @import "partials/typography";
+@import "partials/icons";
+@import "partials/grid";
+@import "partials/animations";
 @import "partials/helpers";
-@import "partials/input";
+@import "partials/inputs";
 @import "partials/buttons";
 @import "partials/base";
-@import "partials/main";
+@import "partials/partials";
+
+
+// elements
+@import "elements/primary-nav";
+@import "elements/secondary-nav";
+@import "elements/section-group";
+@import "elements/social";
+@import "elements/product";
+@import "elements/cart-button";
+@import "elements/title-group";
+@import "elements/cart";
+@import "elements/tabs";
+@import "elements/accordion";
+@import "elements/size-group";
+@import "elements/frame-group";
+@import "elements/pagination";
+
+
+// blocks
+@import "sections/blog";
+@import "sections/article";
+@import "sections/404";
+
 
 // pages
 @import "pages/index";
+@import "pages/product";
+@import "pages/cart";
+@import "pages/cart-modal";
+@import "pages/rule";
+@import "pages/rule-modal";
+@import "pages/about";
+@import "pages/contact";

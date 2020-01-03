@@ -1,25 +1,84 @@
 // --------------------------------------------
 // fonts
 
+@font-face {
+    font-family: "Gilroy";
+    src: url("/fonts/gilroy-light.eot");
+    src: url("/fonts/gilroy-light.eot?#iefix") format("embedded-opentype"),
+         url("/fonts/gilroy-light.woff2") format("woff2"),
+         url("/fonts/gilroy-light.woff") format("woff"),
+         url("/fonts/gilroy-light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
 
 @font-face {
-    font-family: 'Gilroy';
-    src: url('/fonts/gilroy-bold.eot');
-    src: url('/fonts/gilroy-bold.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/gilroy-bold.woff') format('woff'),
-         url('/fonts/gilroy-bold.ttf') format('truetype');
+    font-family: "Gilroy";
+    src: url("/fonts/gilroy-bold.eot");
+    src: url("/fonts/gilroy-bold.eot?#iefix") format("embedded-opentype"),
+         url("/fonts/gilroy-bold.woff2") format("woff2"),
+         url("/fonts/gilroy-bold.woff") format("woff"),
+         url("/fonts/gilroy-bold.ttf") format("truetype");
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Gilroy';
-    src: url('/fonts/gilroy-light.eot');
-    src: url('/fonts/gilroy-light.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/gilroy-light.woff') format('woff'),
-         url('/fonts/gilroy-light.ttf') format('truetype');
+    font-family: "Maison Neue";
+    src: url("/fonts/maison-neue-light.eot");
+    src: url("/fonts/maison-neue-light.eot?#iefix") format("embedded-opentype"),
+         url("/fonts/maison-neue-light.woff2") format("woff2"),
+         url("/fonts/maison-neue-light.woff") format("woff"),
+         url("/fonts/maison-neue-light.ttf") format("truetype");
     font-weight: 300;
     font-style: normal;
 }
 
-$primary-font: "Gilroy", Arial, sans-serif;
+
+@font-face {
+    font-family: "Maison Neue";
+    src: url("/fonts/maison-neue-bold.eot");
+    src: url("/fonts/maison-neue-bold.eot?#iefix") format("embedded-opentype"),
+         url("/fonts/maison-neue-bold.woff2") format("woff2"),
+         url("/fonts/maison-neue-bold.woff") format("woff"),
+         url("/fonts/maison-neue-bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+$primary-font: "Maison Neue", sans-serif;
+$secondary-font: "Gilroy", sans-serif;
+
+h1, h2, h3,
+h4, h5, h6 {
+    color: $base-header;
+    line-height: 1.2;
+    margin: 0 0 12px 0;
+    font-weight: 700;  
+    font-family: $secondary-font;    
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+h6 {
+    font-size: 12px;
+}

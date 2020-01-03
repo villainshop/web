@@ -1,0 +1,21 @@
+extends ../layouts/base
+
+
+block head
+	- var CURRENT = "Rules";
+	- var WRAPPER_CLASS = "";
+
+
+block modal
+	include ../sections/rule-modal
+	
+block content
+	section#terms
+		.container
+			.wrap
+				.title-group
+					h1 Rues ⚖️
+
+				p Some amazing copywriting is going to be here. Trust me, I am an engineer 👴.
+
+	include ../sections/footer

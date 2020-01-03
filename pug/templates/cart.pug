@@ -1,0 +1,37 @@
+.cart
+	.title-group
+		h2 Bag
+			span (#{lineItemCount})
+
+	if lineItemCount !== 0
+		.cart-wrap
+			form(action="/cart/" method="POST").form
+				.cart-items
+					for item in lineItems
+						.item(data-id=item.id)
+							.image
+								if item.image !== null
+									img(src=item.image.src alt=item.title)
+							.title
+								h4 #{item.title}
+								span #{item.variant_title}
+							.count
+								a(href="#decrease").decrease -
+								span #{item.quantity}
+								a(href="#increase").increase +
+							.price
+								span $#{item.price.split(".")[0]}
+
+				.total
+					span $#{subtotal.split(".")[0]}
+					span total
+
+				button.button Checkout
+				p.note Shipping, taxes, and discounts will be calculated at checkout.
+	else
+		.empty
+			.icon
+				include ../../svg/bag.svg
+
+			p Oh 🦌! Your bag is empty.
+			a(href="/").button.back-to-shop back to shop

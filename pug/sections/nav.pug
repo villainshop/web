@@ -1,0 +1,16 @@
+nav#nav
+	.container
+		.wrap
+			if !CURRENT || CURRENT !== "Index"
+				.back
+					a(href="/").button-underline Products
+
+			include ../elements/primary-nav
+			include ../elements/secondary-nav
+
+			.tagline
+				p No heroes beyond this point. Read our 
+					a(href="/rules/").button-underline.open-rule rules
+					| , Darling.
+
+		a(href="#open-nav").open-nav

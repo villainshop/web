@@ -1,0 +1,40 @@
+// --------------------------------------------
+// contact
+section#contact {
+	padding: 120px 0;
+
+	.section-group {
+		.button-underline {
+			margin-bottom: 24px;
+		}
+	}	
+
+	.faq {
+		float: left;
+		width: 100%;
+	}
+
+	.content {
+		width: 100%;
+		float: left;
+	}
+
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+		.wrap {
+			margin: 0 -30px;
+		}
+
+		.content {
+			width: calc(50% - 60px);
+			margin: 0 30px 0px 30px;
+		}
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {
+	} 
+}

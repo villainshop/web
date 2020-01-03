@@ -1,139 +1,154 @@
-// get gulp and modules
-var gulp = require('gulp'),
-	pages = require('gulp-gh-pages'),
-	sync = require('browser-sync'),
-	sass = require('gulp-sass'),
-	bourbon = require('node-bourbon'),
-	neat = require('node-neat'),
-	autoprefix = require('gulp-autoprefixer'),
-	uglify = require('gulp-uglify'),
-	rename = require('gulp-rename'),
-	imagemin = require('gulp-imagemin'),
-	plumber = require('gulp-plumber'),
-	concat = require('gulp-concat'),
-	jade = require('gulp-jade'),
-	del = require('del'),
-	pages = require('gulp-gh-pages'),
-	sitemap = require('gulp-sitemap');
+// get gulp modules
+var gulp = require("gulp"),		
+	sass = require("gulp-sass"),	
+	autoprefix = require("gulp-autoprefixer"),
+	uglify = require("gulp-uglify"),
+	rename = require("gulp-rename"),
+	imagemin = require("gulp-imagemin"),
+	plumber = require("gulp-plumber"),
+	concat = require("gulp-concat"),
+	pug = require("gulp-pug"),
+	template = require("gulp-pug-template-concat"),
+	gulpif = require("gulp-if"),
+	gutil = require("gulp-util");
 
+// other
+var sync = require("browser-sync"),
+	bourbon = require("node-bourbon"),
+	neat = require("node-neat");
 
+// helpers
+var path = require("path");
 
 // link public assets
 var base = "www";
 
-// clean
-gulp.task('clean', function () {
-    return del([
-        'www/**/*',
-    ]);
-});
 
 // minify images
-gulp.task('image', function () {
-	return gulp.src(['img/*', 'img/**/*'])
+gulp.task("image", function () {
+	gulp.src(["./img/**/*"])
 		.pipe(plumber())
-		.pipe(imagemin({progressive: true}))
-		.pipe(gulp.dest(base + '/img'));
-});
-
-// svg
-gulp.task('svg', function () {
-	return gulp.src(['svg/*', 'svg/**/*'])
-		.pipe(plumber())
-		.pipe(gulp.dest(base + '/svg'));
+		.pipe(imagemin())
+		.pipe(gulp.dest(base + "/img"));
 });
 
 // compile sass to css and prefix
-gulp.task('sass', function () {
-	gulp.src('./sass/*.scss')
+gulp.task("sass", function () {
+	gulp.src("./sass/*.scss")
 		.pipe(plumber())
 		.pipe(sass({
 			includePaths: neat.includePaths
 		}))
-		.pipe(autoprefix('last 10 version'))
-		.pipe(gulp.dest(base + '/css'))
+		.pipe(autoprefix("last 10 version"))
+		.pipe(gulp.dest(base + "/css"))
 		.pipe(sync.stream());
 });
 
-// compiles jade
-gulp.task('jade', function () {
-	return gulp.src('./jade/*.jade')
+// compiles pug
+gulp.task("pug", function () {
+	var page = require('./page.json');
+
+	return gulp.src([
+			"pug/pages/*.pug"
+		]) 	
 		.pipe(plumber())
-		.pipe(jade({
-			pretty: true
+		.pipe(pug({
+			pretty: true,
+			locals: {
+				page: page
+			}
 		}))
-		.pipe(rename(function(path) {
-			if (path.basename == 'index') return;
-			path.dirname = path.basename;
-			path.basename = "index";
+		.pipe(rename(function (item) {
+			if (item.basename == "index") return;
+
+			item.dirname = path.join(item.dirname, item.basename);
+			item.basename = "index";
 		}))
 		.pipe(gulp.dest(base));
 });
 
-// sitemap
-gulp.task('sitemap', function () {
-	gulp.src(base + '/**/*.html')
-		.pipe(sitemap({
-			siteUrl: 'http://extremeautomation.io'
+// compiles runtime templates
+gulp.task("templates", function () {
+	return gulp.src([
+			"pug/templates/**/*.pug"
+		]) 	
+		.pipe(plumber())
+		.pipe(rename(function (item) {
+			item.basename = item.basename.replace(/-([a-z])/g, function (word) { 
+				return word[1].toUpperCase(); 
+			});
 		}))
-		.pipe(gulp.dest(base));
+		.pipe(pug({
+			client: true
+		}))
+		.pipe(template("templates.js", {
+			templateVariable: "templates"
+		}))
+		.pipe(gulp.dest("./js/templates"));
+});
+
+// data
+gulp.task("data", function () {
+	gulp.src("./data/**")
+		.pipe(gulp.dest(base + "/data"));
 });
 
 // contact js and minify
-gulp.task('uglify', function () {
-	gulp.src([
-			'js/vendor/jquery.min.js', 
-			'js/vendor/scrollmagic.js', 
-			'js/vendor/*.js', 
-			'js/*.js'
-		])
+gulp.task("uglify", ["templates"], function () {
+	var sources = [
+		"./js/vendors/jquery.js",
+		"./js/vendors/*.js",
+		"./js/modules/*.js",
+		"./js/templates/*.js",
+		"./js/helpers/*.js",  
+		"./js/views/*.js",  
+		"./js/services/*.js", 
+		"./js/controllers/*.js"
+	];
+
+	// check for production
+	if(typeof gutil.env.production !== "undefined") sources.push("./js/configs/production.js");
+	else sources.push("./js/configs/development.js"); 
+
+	return gulp.src(sources)
 		.pipe(plumber())
-		.pipe(concat('main.js'))
-		.pipe(uglify())
-		.pipe(gulp.dest(base + '/js'));
+		.pipe(concat("app.js"))
+		.pipe(gulpif(gutil.env.env == "production", uglify()))
+		.pipe(gulp.dest(base + "/js"));
 });
 
-// copy other resources
-gulp.task('copy', function () {
-	gulp.src(['fonts/**'])
-		.pipe(gulp.dest(base + '/fonts'));
+// copy fonts
+gulp.task("fonts", function () {
+	gulp.src(["./fonts/*"])
+		.pipe(gulp.dest(base + "/fonts"));
 });
 
 // watch tasks (to relaod browser after finish)
-gulp.task('html-watch', ['jade'], sync.reload);
-gulp.task('js-watch', ['uglify'], sync.reload);
-gulp.task('img-watch', ['image'], sync.reload);
-gulp.task('svg-watch', ['svg'], sync.reload);
+gulp.task("html-watch", ["pug"], sync.reload);
+gulp.task("js-watch", ["uglify"], sync.reload);
+gulp.task("img-watch", ["image"], sync.reload);
+gulp.task("fonts-watch", ["fonts"], sync.reload);
+gulp.task("data-watch", ["data"], sync.reload);
 
 // watch
-gulp.task('watch', function () {
+gulp.task("watch", function () {
 	sync.init({
 		server: base,
 		port: 8080,
 		notify: false
 	});
 
-	gulp.watch(['locales/*.js'], ['locale-watch']);
-	gulp.watch(['js/*.js', 'js/**/*.js'], ['js-watch']);
-	gulp.watch(['img/*', 'img/**/*'], ['img-watch']);
-	gulp.watch(['svg/*', 'svg/**/*'], ['svg-watch']);
-	gulp.watch(['sass/*.scss', 'sass/**/*.scss'], ['sass']);
-	gulp.watch(['jade/*.jade', 'jade/**/*.jade'], ['html-watch', 'sitemap']);
-	gulp.watch(['favicon.ico', 'humans.txt', 'robots.txt'], ['copy']);
+	gulp.watch(["js/*.js", "js/**/*.js", "pug/templates/*.pug"], ["js-watch"]);
+	gulp.watch(["img/*", "img/**/*"], ["img-watch"]);
+	gulp.watch(["sass/*.scss", "sass/**/*.scss"], ["sass"]);
+	gulp.watch(["pug/**/*.pug", "!pug/templates{,/**}"], ["html-watch"]);
+	gulp.watch(["fonts/*", "fonts/**/*"], ["fonts-watch"]);
+	gulp.watch(["data/*", "data/**/*"], ["data-watch"]);
 });
 
-// main work
-gulp.task('build', function () {
-	return gulp.start('sass', 'jade', 'uglify', 'image', 'svg', 'copy', 'sitemap');
+//- add "localize", "image" later 
+gulp.task("build", function () {
+	gulp.start("sass", "pug", "data", "uglify", "fonts", "image");
 });
 
-// deploy
-gulp.task('deploy', function () {
-	return gulp.src([base + '/**/*', 'CNAME'])
-    	.pipe(pages({ 
-	    	remoteUrl: "https://github.com/villainshop/villainshop.github.io",
-	    	branch: "master"
-	    }));
-}); 
-
-gulp.task('default', ['build', 'watch']);
+gulp.task("default", ["build", "watch"]);

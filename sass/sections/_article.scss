@@ -1,0 +1,105 @@
+/* --------------------------------------------
+//	article
+*/
+section#article {
+	padding: 120px 0;
+
+	.container {
+		max-width: 720px;
+	}
+
+
+	article {
+		float: left;
+		width: 100%;
+		overflow: visible;
+
+		.title {
+			text-align: center;
+			max-width: 540px;
+			line-height: 1.2;
+			margin: 0 auto 8px auto;
+			font-size: 42px;
+		}
+
+		.meta {
+			color: #bbb;
+			font-weight: 700;
+			text-transform: uppercase;
+			font-size: 12px;
+			text-align: center;
+			margin: 0 0 48px 0;
+			font-family: $secondary-font;
+
+			.divider {
+				margin: 0 8px;
+			}
+		}
+
+		.images {
+			width: auto;
+			clear: both;
+			overflow: hidden;
+			margin: 0 -64px 24px -64px;
+			text-align: center;         
+
+			img {
+				padding: 0;
+				margin: 24px auto;
+				width: 100%;
+				height: auto;
+				display: inline-block; 
+				background: #f3f3f3;
+			}
+		}
+	}
+
+	.footer {
+		margin: 24px 0 0 0;
+		padding: 48px 0 0 0;
+		border-top: 1px solid #eee;
+		float: left;
+		width: 100%;
+
+		.author {
+			margin-right: 192px;
+			overflow: hidden;
+
+			p {
+				font-size: 16px;
+			}
+
+			.image {
+				float: left;
+				width: 72px;
+				height: 72px;
+
+				img {
+					width: 100%;
+					height: auto;
+					border-radius: 50%;
+				}
+			}
+
+			.description {
+				overflow: hidden;
+				width: auto;
+				margin: 0 0 0 92px;
+			}
+		}
+
+		.links {
+			float: right;
+		}
+	}
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {
+	} 
+}

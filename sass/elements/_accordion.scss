@@ -1,0 +1,110 @@
+/* --------------------------------------------
+//	accordion-group element
+*/
+.accordion-group {
+	border-top: 1px solid #d4d4d4;
+	width: 100%;
+
+	.accordion {
+		width: 100%;
+		border-bottom: 1px solid #d4d4d4;
+
+		&.open {
+			.accordion-open {
+				transform: rotate(180deg);
+			}
+
+			.accordion-wrap {
+				transform: translate3d(0, -4px, 0);
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+
+	}
+
+	.accordion-nav {
+		width: 100%;
+		display: block;
+		padding: 24px 0;
+		position: relative;
+		cursor: pointer;
+	}
+
+	.accordion-title {
+		margin-right: 48px;
+
+		h4 {
+			font-weight: 300;
+			margin: 0;
+			width: 100%;
+			line-height: 1.6;
+			font-size: 18px;
+		}
+	}
+
+	.accordion-open {
+		width: 40px;
+		height: 40px;
+		content: "";
+		display: block;
+		border-radius: 20px;
+		background: #eee;
+		position: absolute;
+		top: 17px;
+		right: 0px;
+		font-family: "";
+		transition:
+			transform 0.4s ease;
+
+		&:after, &:before {
+			width: 1px;
+			height: 10px;
+			background: #727272;
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0px;
+			left: 0px;			
+		}
+
+		&:before {
+			transform: translate3d(23px, 17px, 0) rotate(45deg);
+		}
+
+		&:after {
+			transform: translate3d(16px, 17px, 0) rotate(-45deg);
+		}
+	}
+
+	.accordion-content {
+		max-height: 0px;
+		overflow: hidden;
+	}
+
+	.accordion-wrap {
+		margin-bottom: 16px;
+		position: relative;
+		transform: translate3d(0, 4px, 0);
+		opacity: 0;
+		visibility: hidden;
+		transition: 
+			opacity 0.4s,
+			visibility 0.4s,
+			transform 0.4s;
+	}
+
+	
+
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {
+	}
+}

@@ -1,0 +1,42 @@
+extends ../layouts/base
+
+
+block head
+	- var CURRENT = "Blog";
+	- var WRAPPER_CLASS = "";
+
+
+block modal
+	include ../sections/rule-modal
+
+block content
+	section#blog
+		.container
+			.wrap
+				article
+					a(href="/article/").title
+						h2 Some title
+					.meta
+						time(datetime="").date.timeago 24 days ago
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utore et dolore magna aliqua.
+
+				article
+					a(href="/article/").title
+						h2 Some title
+					.meta
+						time(datetime="").date.timeago 24 days ago
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utore et dolore magna aliqua.
+
+				article
+					a(href="/article/").title
+						h2 Some title
+					.meta
+						time(datetime="").date.timeago 24 days ago
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utore et dolore magna aliqua.
+
+			.pagination
+				a(href="/blog/").prev Prev
+				.total Page 1 of 3
+				a(href="/blog/").next Next
+
+	include ../sections/footer

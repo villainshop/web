@@ -1,0 +1,48 @@
+/* --------------------------------------------
+//	social element
+*/
+.social, .share {
+	clear: both;
+	
+	li {
+		float: left;
+		margin: 0 8px 0 0;
+	}
+
+	a {
+		padding: 6px;
+		display: block;
+		text-align: center;
+		text-align: center;
+		line-height: 1;
+
+		i {
+			color: rgba(0, 0, 0, 0.7);
+			font-size: 24px;
+			transition: color ease 0.3s;
+		}
+	}
+
+	&.color {
+		a.twitter i { color: #55acee; }
+		a.facebook i { color: #3b5998; }
+		a.pinterest i { color: #cb2027; }
+	}
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {
+		li {
+			a {
+				&:hover i {
+					color: rgba(0, 0, 0, 0.9);
+				}
+			}
+		}
+	}
+}

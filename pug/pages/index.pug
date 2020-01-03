@@ -1,0 +1,41 @@
+extends ../layouts/base
+
+
+block head
+	- var CURRENT = "Index";
+	- var WRAPPER_CLASS = "";
+
+
+block modal
+	include ../elements/cart-button
+
+	include ../sections/cart-modal
+	include ../sections/rule-modal
+	include ../sections/product-modal
+
+block content
+	section#index
+		.container
+			.wrap
+				mixin item(id)
+					a(href="/product/").product.animate
+						.image
+							img(src="/img/products/" + id + ".png", alt="")
+
+						.meta
+							.title
+								h3 Poster Title
+							.price
+								span $32
+								.button.add-to-cart Add to bag
+				.section-group
+					h1 #{page.short}
+					a(href="/about/").button-underline Our story
+
+				//- +item(1)
+				//- +item(2)
+				//- +item(3)
+				//- +item(4)
+				//- +item(5)
+
+	include ../sections/footer

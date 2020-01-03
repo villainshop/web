@@ -1,0 +1,11 @@
+a(href="/product/", data-id=id, data-variant=variants[0].id).product.animate.open-product
+	if images !== "undefined" && images.length > 0
+		.image
+			img(src=images[0].src, alt=title)
+
+	.meta
+		.title
+			h3 #{title}
+		.price
+			span #{variants[0].formattedPrice.split(".")[0]}
+			.button.add-to-cart Add to bag

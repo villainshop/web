@@ -1,22 +1,21 @@
 // --------------------------------------------
 // grid
 
-
 @import "neat-helpers"; // or "neat-helpers" when in Rails
 
 /* grid settings */
 $column: 90px;
 $gutter: 30px;
-// $grid-columns: 12;
+$grid-columns: 12;
+$max-width: 1080px;
 $visual-grid: false;
+
 
 
 /* breakpoints */
 $phone: new-breakpoint(min-width 521px 4);
 $tablet: new-breakpoint(min-width 691px 8);
-$desktop: new-breakpoint(min-width 1120px 12);
-
-$height: new-breakpoint(min-height 600 4);
+$desktop: new-breakpoint(min-width 1080px 12);
 
 
 /*
@@ -32,3 +31,6 @@ $height: new-breakpoint(min-height 600 4);
 }
 
 */
+
+
+/* some columns */

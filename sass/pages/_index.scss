@@ -1,0 +1,26 @@
+// --------------------------------------------
+// index
+section#index {
+	padding: 120px 0;
+
+	.section-group {
+		margin-bottom: 140px;
+	}
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+		.wrap {
+			margin: 0 -6px;
+		}
+		
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {
+		.wrap {
+			margin: 0 -30px;
+		}
+	} 
+}

@@ -1,0 +1,60 @@
+/* --------------------------------------------
+//	pagination element
+*/	
+
+.pagination {
+	text-align: center;
+	overflow: hidden;
+	width: 100%;
+	position: relative;
+
+	.total {
+		display: block;
+		line-height: 42px;
+		width: 100%;
+		float: left;
+		text-align: center;
+	}
+
+	.next, .prev {
+		float: right;
+		display: block;
+		border: 1px solid #eee;
+		border-radius: 3px;
+		line-height: 1.2;
+		padding: 12px 18px;
+		font-size: 14px;
+		text-transform: uppercase;
+		font-weight: 700;
+		width: 100%;
+		font-family: $secondary-font;
+	}		
+
+	// ---------------------- phone mediaq
+	@include media($phone) {
+		.next, .prev {
+			position: absolute;
+			right: 0px;
+			top: 0px;
+			clear: both;
+			max-width: 100px;
+			transition: border-color 0.2s;
+		}
+
+		.prev {
+			left: 0px;
+			right: auto;
+		}
+	}
+	// ---------------------- tablet mediaq
+	@include media($tablet) {
+	}
+	// ---------------------- desktop mediaq
+	@include media($desktop) {
+		.next, .prev {
+			&:hover {
+				border-color: lighten($primary, 30);
+			}
+		}
+} 
+}
